@@ -34,9 +34,14 @@ from sklearn.model_selection import cross_val_score
 from keras.models import Sequential
 from keras.layers import Dense
 
+# Dropout regularlization to prevent overfitting
+from keras.layers import Dropout
+
+# Addding Dropout just to the input layer as an example with p(rate) = 0.1 ie 10%
 def build_classifier():
     classifier = Sequential()
     classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu', input_dim = 11))
+    classifier.add(Dropout(rate=0.1))
     classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu'))
     classifier.add(Dense(units = 1, kernel_initializer = 'uniform', activation = 'sigmoid'))
     classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
