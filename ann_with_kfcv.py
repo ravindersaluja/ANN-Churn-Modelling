@@ -31,8 +31,6 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.wrappers.scikit_learn import KerasClassifier
 from sklearn.model_selection import cross_val_score
-from keras.models import Sequential
-from keras.layers import Dense
 
 # Dropout regularlization to prevent overfitting
 from keras.layers import Dropout
@@ -53,6 +51,3 @@ mean = accuracies.mean()
 variance = accuracies.std()
 print("Mean of accuracies:", mean)
 print("Variance:", variance)
-
-
-
