@@ -65,3 +65,14 @@ grid_search = grid_search.fit(X_train, y_train)
 best_parameters = grid_search.best_params_
 best_accuracy = grid_search.best_score_
 cvResults = pd.DataFrame(grid_search.cv_results_)
+
+
+import pickle
+filename = "ANN_model_with_gscv.sav"
+pickle.dump(grid_search, open(filename, 'wb'))
+grid_search = pickle.load(open(filename, 'rb'))
+
+grid_search.predict(X_test)
+
+
+
